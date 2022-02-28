@@ -1,5 +1,6 @@
 package com.example.rabbitmq.rabbitmqtest.config;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.core.Exchange;
 import org.springframework.amqp.core.ExchangeBuilder;
 import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
@@ -23,7 +24,8 @@ public class MessageConfig {
 
     @Bean
     public MessageConverter jsonMessageConverter() {
-      return new Jackson2JsonMessageConverter();
+      ObjectMapper mapper = new ObjectMapper().findAndRegisterModules();
+      return new Jackson2JsonMessageConverter(mapper);
     }
 
 }

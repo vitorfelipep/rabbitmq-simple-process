@@ -24,7 +24,7 @@ public class MessageConfig {
 
     @Bean
     public MessageConverter jsonMessageConverter() {
-      return new Jackson2JsonMessageConverter(new ObjectMapper());
+      return new Jackson2JsonMessageConverter();
     }
 
 }

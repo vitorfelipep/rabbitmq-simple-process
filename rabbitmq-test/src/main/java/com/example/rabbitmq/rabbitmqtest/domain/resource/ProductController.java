@@ -2,7 +2,6 @@ package com.example.rabbitmq.rabbitmqtest.domain.resource;
 
 import com.example.rabbitmq.rabbitmqtest.domain.service.ProductService;
 import com.example.rabbitmq.rabbitmqtest.domain.vo.ProductVO;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,7 +19,7 @@ public class ProductController {
   private ProductService productService;
 
   @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-  public ResponseEntity createProduct(@RequestBody ProductVO productVO) throws JsonProcessingException {
+  public ResponseEntity createProduct(@RequestBody ProductVO productVO) {
     productService.createProduct(productVO);
     return ResponseEntity.status(HttpStatus.CREATED).build();
   }

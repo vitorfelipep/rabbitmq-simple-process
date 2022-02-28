@@ -1,9 +1,6 @@
-server:
-  port: 8081
-
 spring:
   application:
-    name: app-message-rabbitmq
+    name: app-consumer-message-rabbitmq
 
   jackson:
     serialization:
@@ -19,4 +16,4 @@ com:
   template:
     rabbitmq:
       exchange: test.exchange
-      routingKey: test.message.routingkey
+      queue: com.create.product.Queue

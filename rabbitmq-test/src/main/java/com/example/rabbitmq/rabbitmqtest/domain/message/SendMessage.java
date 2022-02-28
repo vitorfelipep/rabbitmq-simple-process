@@ -1,8 +1,6 @@
 package com.example.rabbitmq.rabbitmqtest.domain.message;
 
 import com.example.rabbitmq.rabbitmqtest.domain.vo.ProductVO;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -22,8 +20,7 @@ public class SendMessage {
     this.rabbitTemplate = rabbitTemplate;
   }
 
-  public void sendMessage(ProductVO produtoVO) throws JsonProcessingException {
-    ObjectMapper objectMapper = new ObjectMapper();
-    rabbitTemplate.convertAndSend(exchange, routingKey, objectMapper.writeValueAsString(produtoVO));
+  public void sendMessage(ProductVO produtoVO) {
+    rabbitTemplate.convertAndSend(exchange, routingKey, produtoVO);
   }
 }
