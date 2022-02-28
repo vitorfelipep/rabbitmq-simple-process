@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: app-message-rabbitmq
+
+  jackson:
+    serialization:
+      write_dates_as_timestamps: true
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+com:
+  template:
+    rabbitmq:
+      exchange: test.exchange
+      routingKey: test.message.routingkey
